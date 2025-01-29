@@ -8,13 +8,14 @@ terraform {
 }
 
 provider "google" {
-  project = "gcp-terraform-sthz"
-  region  = "asia-southeast1"
+  credentials = file(var.credentials)
+  project     = var.project
+  region      = var.location
 }
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "gcp-terraform-sthz-demo-bucket-1111"
-  location      = "asia-southeast1"
+  name          = var.gcp_bucket_name
+  location      = var.location
   force_destroy = true
 
   lifecycle_rule {
@@ -34,4 +35,8 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+resource "google_bigquery_dataset" "demo-dataset" {
+  dataset_id = var.bq_dataset_name
+  location   = var.location
 }
