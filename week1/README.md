@@ -55,3 +55,8 @@ terraform init
 terraform plan 
 terraform apply
 terraform destory
+
+
+## Google cloud configuration 
+- Activate the account 
+- Start the VM 
