@@ -171,3 +171,5 @@ cython_debug/
 .pypirc
 .dtc-env 
 /dtc-env/.dtc-env/*
+keys/.credentials/*
+*.parquet
